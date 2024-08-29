@@ -1,0 +1,177 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Controller.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/ControlPanel.gd" type="Script" id=2]
+[ext_resource path="res://cont.png" type="Texture" id=3]
+[ext_resource path="res://pseudo_3d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/fonts/Audiowide_Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://pointer.png" type="Texture" id=6]
+[ext_resource path="res://gearboxLightHight.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="ControlPanel" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CenterContainer" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_left = 2.0
+margin_top = 86.0
+margin_right = 1052.0
+margin_bottom = 886.0
+
+[node name="SpritePanelBg" type="Sprite" parent="."]
+position = Vector2( 519, 177 )
+scale = Vector2( 1.77765, 1.77917 )
+z_index = -328
+texture = ExtResource( 3 )
+
+[node name="Pointer" type="TextureRect" parent="SpritePanelBg"]
+margin_left = -2.25012
+margin_top = 165.0
+margin_right = 52.7329
+margin_bottom = 167.0
+rect_rotation = -300.2
+rect_pivot_offset = Vector2( 0, 1 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="BackGround" type="ColorRect" parent="SpritePanelBg"]
+show_behind_parent = true
+margin_left = -185.0
+margin_top = 186.0
+margin_right = -133.0
+margin_bottom = 236.0
+color = Color( 0.0666667, 0.0627451, 0.0627451, 1 )
+
+[node name="Gears" type="Node2D" parent="SpritePanelBg"]
+show_behind_parent = true
+
+[node name="1" type="ColorRect" parent="SpritePanelBg/Gears"]
+show_behind_parent = true
+margin_left = -169.0
+margin_top = 227.0
+margin_right = -136.0
+margin_bottom = 235.0
+color = Color( 0.0745098, 0.184314, 0.627451, 1 )
+
+[node name="2" type="ColorRect" parent="SpritePanelBg/Gears"]
+show_behind_parent = true
+margin_left = -169.0
+margin_top = 220.0
+margin_right = -137.0
+margin_bottom = 226.0
+color = Color( 0.152941, 0.588235, 0.701961, 1 )
+
+[node name="3" type="ColorRect" parent="SpritePanelBg/Gears"]
+show_behind_parent = true
+margin_left = -171.0
+margin_top = 212.0
+margin_right = -145.0
+margin_bottom = 218.0
+color = Color( 0.152941, 0.701961, 0.407843, 1 )
+
+[node name="4" type="ColorRect" parent="SpritePanelBg/Gears"]
+show_behind_parent = true
+margin_left = -177.0
+margin_top = 203.0
+margin_right = -150.0
+margin_bottom = 211.0
+color = Color( 0.647059, 0.701961, 0.152941, 1 )
+
+[node name="5" type="ColorRect" parent="SpritePanelBg/Gears"]
+show_behind_parent = true
+margin_left = -179.0
+margin_top = 196.0
+margin_right = -155.0
+margin_bottom = 202.0
+color = Color( 0.701961, 0.500368, 0.152941, 1 )
+
+[node name="6" type="ColorRect" parent="SpritePanelBg/Gears"]
+show_behind_parent = true
+margin_left = -183.0
+margin_top = 187.0
+margin_right = -156.0
+margin_bottom = 195.0
+color = Color( 0.701961, 0.152941, 0.152941, 1 )
+
+[node name="HighLight" type="TextureRect" parent="SpritePanelBg"]
+modulate = Color( 0.054902, 1, 0, 1 )
+margin_left = -116.105
+margin_top = 205.0
+margin_right = -103.105
+margin_bottom = 222.0
+rect_scale = Vector2( 1.039, 1.057 )
+texture = ExtResource( 7 )
+expand = true
+
+[node name="SignalBar" type="ProgressBar" parent="."]
+visible = false
+margin_left = 44.0
+margin_top = 33.0
+margin_right = 287.0
+margin_bottom = 107.0
+min_value = -100.0
+max_value = 0.0
+value = -100.0
+
+[node name="LabelSignal" type="Label" parent="."]
+visible = false
+margin_left = 80.1763
+margin_top = 99.4905
+margin_right = 247.176
+margin_bottom = 169.49
+custom_fonts/font = SubResource( 2 )
+text = "Signal"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelThrottle" type="Label" parent="."]
+visible = false
+margin_left = 884.103
+margin_top = 219.649
+margin_right = 1001.1
+margin_bottom = 252.649
+custom_fonts/font = SubResource( 3 )
+text = "Throttle"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Throttlebar" type="ProgressBar" parent="."]
+visible = false
+margin_left = 907.26
+margin_top = 207.0
+margin_right = 1074.26
+margin_bottom = 276.0
+rect_rotation = -89.9999
+step = 1.0
+rounded = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pseudo_3d" parent="." instance=ExtResource( 4 )]
+show_behind_parent = true
+position = Vector2( -8, 30 )
+z_index = -3825
